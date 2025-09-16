@@ -4969,19 +4969,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {}
+    "C:\\Users\\Punto Digital\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\source\\repos\\TarjetaSube\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
+      "projectUniqueName": "C:\\Users\\Punto Digital\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
       "projectName": "TarjetaSubeTest",
-      "projectPath": "C:\\Users\\PC\\source\\repos\\TarjetaSube\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\source\\repos\\TarjetaSube\\TarjetaSubeTest\\obj\\",
+      "projectPath": "C:\\Users\\Punto Digital\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
+      "packagesPath": "C:\\Users\\Punto Digital\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Punto Digital\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSubeTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Punto Digital\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4989,15 +4989,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\PC\\source\\repos\\TarjetaSube\\TarjetaSube\\TarjetaSube.csproj": {
-              "projectPath": "C:\\Users\\PC\\source\\repos\\TarjetaSube\\TarjetaSube\\TarjetaSube.csproj"
+            "C:\\Users\\Punto Digital\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj": {
+              "projectPath": "C:\\Users\\Punto Digital\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj"
             }
           }
         }
