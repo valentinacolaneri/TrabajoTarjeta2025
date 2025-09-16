@@ -1,28 +1,64 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace TarjetaSube
+public abstract class Tarjeta
 {
-    public class Tarjeta
-    {
-        private int saldo;
-        public Tarjeta(int saldo = 0)
-        {
-            this.saldo = saldo;
-        }
+    protected decimal saldo;
+    private const decimal LIMITE_SALDO = 40000m;
+    private const decimal SALDO_NEGATIVO_MAXIMO = -1200m;
+    protected static readonly decimal[] CARGAS_ACEPTADAS =
+        { 2000m, 3000m, 4000m, 5000m, 8000m, 10000m, 15000m, 20000m, 25000m, 30000m };
 
-        public int Saldo
+    public decimal Saldo => saldo;
+
+    protected Tarjeta()
+    {
+        saldo = 0m;
+    }
+
+    public virtual bool Cargar(decimal monto)
+    {
+        if (!CARGAS_ACEPTADAS.Contains(monto))
+            return false;
+
+        if (saldo + monto > LIMITE_SALDO)
+            return false;
+
+        // Si tiene saldo negativo, primero descuenta la deuda
+        if (saldo < 0)
         {
-            get { return saldo; }
-            set { saldo = value; }
+            decimal deuda = Math.Abs(saldo);
+            decimal montoRestante = monto - deuda;
+
+            if (montoRestante >= 0)
+            {
+                saldo = montoRestante;
+                return true;
+            }
+            else
+            {
+                saldo += monto;
+                return true;
+            }
         }
-        
-        public void Cargar(int importe)
+        else
         {
-            saldo += importe;
-        }
-        public void Pagar()
-        {
-            saldo -= 50;
+            saldo += monto;
+            return true;
         }
     }
+
+    public virtual bool Descontar(decimal monto)
+    {
+        decimal nuevoSaldo = saldo - monto;
+
+        if (nuevoSaldo < SALDO_NEGATIVO_MAXIMO)
+            return false;
+
+        saldo = nuevoSaldo;
+        return true;
+    }
+
+    public abstract decimal CalcularMontoPasaje(decimal tarifaBase);
+    public abstract bool PuedePagar(decimal tarifaBase);
 }
