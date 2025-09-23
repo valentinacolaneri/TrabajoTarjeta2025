@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public abstract class Tarjeta
+namespace TarjetaSube
+{
+    public abstract class Tarjeta
 {
     protected decimal saldo;
     private const decimal LIMITE_SALDO = 40000m;
@@ -62,3 +67,4 @@ public abstract class Tarjeta
     public abstract decimal CalcularMontoPasaje(decimal tarifaBase);
     public abstract bool PuedePagar(decimal tarifaBase);
 }
+    }

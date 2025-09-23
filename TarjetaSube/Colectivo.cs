@@ -1,4 +1,12 @@
-﻿public class Colectivo
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TarjetaSube
+{
+    public class Colectivo
 {
     private const decimal TARIFA_BASICA = 1580m;
     private string linea;
@@ -22,4 +30,6 @@
             return new Boleto(montoPasaje, linea, DateTime.Now, false);
         }
     }
+}
+
 }
