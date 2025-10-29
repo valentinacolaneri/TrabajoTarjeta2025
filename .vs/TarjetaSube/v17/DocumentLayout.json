@@ -40,28 +40,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TarjetaSubeTest",
+              "Title": "TarjetaSubeTest.csproj",
               "DocumentMoniker": "C:\\Users\\colan\\Source\\Repos\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
               "RelativeDocumentMoniker": "TarjetaSubeTest\\TarjetaSubeTest.csproj",
               "ToolTip": "C:\\Users\\colan\\Source\\Repos\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
               "RelativeToolTip": "TarjetaSubeTest\\TarjetaSubeTest.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-29T14:03:39.205Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T14:03:39.205Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TarjetaSube",
+              "Title": "TarjetaSube.csproj",
               "DocumentMoniker": "C:\\Users\\colan\\Source\\Repos\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj",
               "RelativeDocumentMoniker": "TarjetaSube\\TarjetaSube.csproj",
               "ToolTip": "C:\\Users\\colan\\Source\\Repos\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj",
               "RelativeToolTip": "TarjetaSube\\TarjetaSube.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-29T14:03:35.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T14:03:35.778Z"
             }
           ]
         }
