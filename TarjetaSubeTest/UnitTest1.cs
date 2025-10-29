@@ -11,14 +11,14 @@ namespace TarjetaSubeTest
         [SetUp]
         public void Setup()
         {
-            t = new Tarjeta();
+            t = new TarjetaComun();
         }
 
         [Test]
         public void CargaTest()
         {
             t.Cargar(100);
-            t.Pagar();
+            t.Descontar(12);
             Assert.AreEqual(t.Saldo, 50);
         }
     }
