@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\colan\\source\\repos\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj": {}
+    "C:\\Users\\colan\\Source\\Repos\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj": {}
   },
   "projects": {
-    "C:\\Users\\colan\\source\\repos\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj": {
+    "C:\\Users\\colan\\Source\\Repos\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\colan\\source\\repos\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj",
+        "projectUniqueName": "C:\\Users\\colan\\Source\\Repos\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj",
         "projectName": "TarjetaSube",
-        "projectPath": "C:\\Users\\colan\\source\\repos\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj",
+        "projectPath": "C:\\Users\\colan\\Source\\Repos\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj",
         "packagesPath": "C:\\Users\\colan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\colan\\Source\\Repos\\TrabajoTarjeta2025\\TarjetaSube\\obj\\",
+        "outputPath": "C:\\Users\\colan\\source\\repos\\TrabajoTarjeta2025\\TarjetaSube\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
