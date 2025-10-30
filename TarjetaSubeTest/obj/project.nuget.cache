@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9zxhGuqFOH8SYp3yLRb49FMBAbXucDfER1QMySpzjZ1eNUd9W5gXLNmjojB5zyEhEHFXASS97U7oCiWIp+kKDg==",
+  "dgSpecHash": "FtRTndQRiJu9N1xj9vpYjo6S2zLm5oGcqMTJve5ssnN8Am00vYZfBlcqfsRxn6O1sSxlmUwJow+lIwUJBGL74g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\Desktop\\dfg\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
+  "projectFilePath": "C:\\Users\\PC\\Desktop\\pruebaClonColaneli\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",

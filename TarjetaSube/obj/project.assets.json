@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\Desktop\\dfg\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Desktop\\pruebaClonColaneli\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj",
       "projectName": "TarjetaSube",
-      "projectPath": "C:\\Users\\PC\\Desktop\\dfg\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj",
+      "projectPath": "C:\\Users\\PC\\Desktop\\pruebaClonColaneli\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Desktop\\dfg\\TrabajoTarjeta2025\\TarjetaSube\\obj\\",
+      "outputPath": "C:\\Users\\PC\\Desktop\\pruebaClonColaneli\\TrabajoTarjeta2025\\TarjetaSube\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
