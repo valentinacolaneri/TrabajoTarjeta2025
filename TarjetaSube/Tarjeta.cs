@@ -146,4 +146,19 @@ public abstract class Tarjeta
 
     public abstract decimal CalcularMontoPasaje(decimal tarifaBase);
     public abstract bool PuedePagar(decimal tarifaBase);
+
+    #region Punto de entrada para compilación - NO TESTEAR
+    public static void Main(string[] args)
+    {
+        // Punto de entrada mínimo para compilación
+        // Este método NO debe ser testeado para no afectar CodeCov
+        Console.WriteLine("Sistema de Tarjeta SUBE - Modo compilación");
+
+        // Crear instancias básicas para verificar que todo compila
+        var tarjetaComun = new TarjetaComun();
+        var colectivo = new Colectivo("132");
+
+        Console.WriteLine("Sistema compilado correctamente");
+    }
+    #endregion
 }

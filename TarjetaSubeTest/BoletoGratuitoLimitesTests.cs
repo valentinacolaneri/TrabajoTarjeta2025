@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 
-[TestFixture]
+namespace TarjetaSubeTest  
+{
+    [TestFixture]
 public class BoletoGratuitoLimitesTests
 {
     [Test]
@@ -56,3 +58,4 @@ public class BoletoGratuitoLimitesTests
         }
     }
 }
+    }
