@@ -1,3 +1,36 @@
+## Visual Studio
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+*.cache
+*.userosscache
+*.userprefs
+
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+[Xx]64/
+[Xx]86/
+[Bb]uild/
+bld/
+
+## Visual Studio 2015/2017 cache/options directory
 .vs/
 
-.git 
+## .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## NuGet
+[Nn]uGet/
+*.nupkg
+*.snupkg
+nuget.exe
+
+## NET Core
+dotnet.exej
