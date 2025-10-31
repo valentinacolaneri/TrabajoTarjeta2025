@@ -129,7 +129,7 @@ public abstract class Tarjeta
         TimeSpan tiempoDesdeUltimoViaje = DateTime.Now - ultimoViaje;
 
         // Para testing: 5 segundos en lugar de 5 minutos
-        if (tiempoDesdeUltimoViaje.TotalSeconds < 5)  // Cambiado de Minutes a Seconds
+        if (tiempoDesdeUltimoViaje.TotalMinutes < 5)  // Cambiado de Minutes a Seconds
             return false;
 
         // Verificar máximo 2 viajes por día
