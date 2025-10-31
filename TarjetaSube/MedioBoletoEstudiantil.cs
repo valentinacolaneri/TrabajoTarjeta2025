@@ -20,15 +20,9 @@ public class MedioBoletoEstudiantil : Tarjeta
     {
         decimal montoPasaje = CalcularMontoPasaje(tarifaBase);
 
-        // Verificar restricción de 5 SEGUNDOS entre viajes (para testing)
-        if (historialViajes.Count > 0)
-        {
-            DateTime ultimoViaje = historialViajes.Last();
-            TimeSpan tiempoDesdeUltimoViaje = DateTime.Now - ultimoViaje;
-
-            if (tiempoDesdeUltimoViaje.TotalSeconds < 5)  // ← Cambiado de Minutes a Seconds
-                return false;
-        }
+       
+        if (!PuedeViajarMedioBoleto())
+            return false;
 
         return saldo - montoPasaje >= -1200m;
     }

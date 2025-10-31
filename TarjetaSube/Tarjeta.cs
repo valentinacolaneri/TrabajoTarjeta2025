@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Diagnostics.CodeAnalysis;  
 public abstract class Tarjeta
 {
     protected decimal saldo;
@@ -98,11 +98,11 @@ public abstract class Tarjeta
     {
         decimal nuevoSaldo = saldo - monto;
 
-        // ✅ VERIFICACIÓN DE LÍMITE DE SALDO NEGATIVO
+        
         if (nuevoSaldo < SALDO_NEGATIVO_MAXIMO)
-            return false; // ❌ No permite superar el límite de -$1200
+            return false; //No permite superar el límite de -$1200
 
-        saldo = nuevoSaldo; // ✅ Permite saldo negativo hasta -$1200
+        saldo = nuevoSaldo; // Permite saldo negativo hasta -$1200
 
         // Después de descontar, intentar acreditar saldo pendiente
         AcreditarCarga();
@@ -115,13 +115,13 @@ public abstract class Tarjeta
         historialViajes.Add(DateTime.Now);
     }
 
-    protected int CantidadViajesHoy()
+    public int CantidadViajesHoy()
     {
         DateTime hoy = DateTime.Today;
         return historialViajes.Count(v => v.Date == hoy);
     }
 
-    protected bool PuedeViajarMedioBoleto()
+    public bool PuedeViajarMedioBoleto()
     {
         if (historialViajes.Count == 0) return true;
 
@@ -129,7 +129,7 @@ public abstract class Tarjeta
         TimeSpan tiempoDesdeUltimoViaje = DateTime.Now - ultimoViaje;
 
         // Para testing: 5 segundos en lugar de 5 minutos
-        if (tiempoDesdeUltimoViaje.TotalSeconds < 5)  // ← Cambiado de Minutes a Seconds
+        if (tiempoDesdeUltimoViaje.TotalSeconds < 5)  // Cambiado de Minutes a Seconds
             return false;
 
         // Verificar máximo 2 viajes por día
@@ -139,11 +139,27 @@ public abstract class Tarjeta
         return true;
     }
 
-    protected bool PuedeViajarGratuito()
+    public bool PuedeViajarGratuito()
     {
         return CantidadViajesHoy() < 2;
     }
 
     public abstract decimal CalcularMontoPasaje(decimal tarifaBase);
     public abstract bool PuedePagar(decimal tarifaBase);
+
+    #region Punto de entrada para compilación - NO TESTEAR
+
+    [ExcludeFromCodeCoverage]
+    public static void Main(string[] args)
+    {
+        
+        Console.WriteLine("Sistema de Tarjeta SUBE - Modo compilación");
+
+        // Crear instancias básicas para verificar que todo compila
+        var tarjetaComun = new TarjetaComun();
+        var colectivo = new Colectivo("132");
+
+        Console.WriteLine("Sistema compilado correctamente");
+    }
+    #endregion
 }
