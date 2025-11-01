@@ -17,5 +17,13 @@ namespace TarjetaSube
         {
             return true; // Siempre puede pagar
         }
+
+        public override bool Descontar(decimal monto)
+        {
+            // Para franquicia completa, no se descuenta nada del saldo
+            // pero se registra el viaje
+            RegistrarViaje();
+            return true;
+        }
     }
 }
