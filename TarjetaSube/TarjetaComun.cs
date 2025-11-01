@@ -8,14 +8,23 @@ namespace TarjetaSube
 {
     public class TarjetaComun : Tarjeta
     {
+        public TarjetaComun()
+        {
+            // AGREGAR: Inicializar boleto frecuente
+            boletoFrecuente = new BoletoFrecuente();
+        }
+
         public override decimal CalcularMontoPasaje(decimal tarifaBase)
         {
-            return tarifaBase;
+            // MODIFICAR: Aplicar descuento por uso frecuente
+            return boletoFrecuente.AplicarDescuentoFrecuente(tarifaBase);
         }
 
         public override bool PuedePagar(decimal tarifaBase)
         {
-            return saldo - tarifaBase >= -1200m;
+            // MODIFICAR: Usar el monto calculado con descuentos
+            decimal montoPasaje = CalcularMontoPasaje(tarifaBase);
+            return saldo - montoPasaje >= -1200m;
         }
     }
 }
