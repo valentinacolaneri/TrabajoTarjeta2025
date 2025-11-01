@@ -1,29 +1,34 @@
 ﻿using NUnit.Framework;
+using System;
 
 namespace TarjetaSubeTest  
 {
     [TestFixture]
 public class BoletoGratuitoLimitesTests
 {
-    [Test]
-    public void BoletoGratuito_PermiteDosViajesGratuitosPorDia()
-    {
-        var tarjetaGratuita = new BoletoGratuitoEstudiantil();
-        var colectivo = new Colectivo("132");
+        [Test]
+        public void BoletoGratuito_PermiteDosViajesGratuitosPorDia()
+        {
+            var tarjetaGratuita = new BoletoGratuitoEstudiantil();
+            var colectivo = new Colectivo("132");
 
-        // Primer viaje gratuito
-        var boleto1 = colectivo.PagarCon(tarjetaGratuita);
+            
 
-        // Segundo viaje gratuito
-        var boleto2 = colectivo.PagarCon(tarjetaGratuita);
+            // Primer viaje gratuito
+            var boleto1 = colectivo.PagarCon(tarjetaGratuita);
+            
 
-        Assert.IsTrue(boleto1.EsValido);
-        Assert.IsTrue(boleto2.EsValido);
-        Assert.AreEqual(0m, boleto1.Monto);
-        Assert.AreEqual(0m, boleto2.Monto);
-    }
+            // Segundo viaje gratuito  
+            var boleto2 = colectivo.PagarCon(tarjetaGratuita);
+            
 
-    [Test]
+            Assert.IsTrue(boleto1.EsValido);
+            Assert.IsTrue(boleto2.EsValido);
+            Assert.AreEqual(0m, boleto1.Monto);
+            Assert.AreEqual(0m, boleto2.Monto);
+        }
+
+        [Test]
     public void BoletoGratuito_TercerViajeDelDia_TarifaCompleta()
     {
         var tarjetaGratuita = new BoletoGratuitoEstudiantil();

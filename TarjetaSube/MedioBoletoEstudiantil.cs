@@ -6,34 +6,19 @@ public class MedioBoletoEstudiantil : Tarjeta
 {
     public override decimal CalcularMontoPasaje(decimal tarifaBase)
     {
-        if (PuedeViajarMedioBoleto())
-        {
-            return tarifaBase / 2;
-        }
-        else
-        {
-            return tarifaBase;
-        }
+        return PuedeViajarMedioBoleto() ? tarifaBase / 2 : tarifaBase;
     }
 
     public override bool PuedePagar(decimal tarifaBase)
     {
         decimal montoPasaje = CalcularMontoPasaje(tarifaBase);
 
-       
-        if (!PuedeViajarMedioBoleto())
+        // ✅ AGREGAR ESTA VERIFICACIÓN CRÍTICA:
+        // Si no puede viajar con medio boleto, tampoco puede pagar (para los primeros 2 viajes)
+        if (!PuedeViajarMedioBoleto() && CantidadViajesHoy() < 2)
             return false;
 
-        return saldo - montoPasaje >= -1200m;
+        return Saldo - montoPasaje >= -1200m;
     }
-
-    public new bool Descontar(decimal monto)
-    {
-        bool resultado = base.Descontar(monto);
-        if (resultado)
-        {
-            RegistrarViaje();
-        }
-        return resultado;
-    }
+   
 }

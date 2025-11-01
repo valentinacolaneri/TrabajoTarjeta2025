@@ -17,7 +17,7 @@ public abstract class Tarjeta
     private static int proximoId = 1;
 
     // Historial de viajes para control de límites
-    protected List<DateTime> historialViajes;
+    private List<DateTime> historialViajes;
 
     protected Tarjeta()
     {
@@ -32,7 +32,7 @@ public abstract class Tarjeta
         if (!CARGAS_ACEPTADAS.Contains(monto))
             return false;
 
-        // ✅ NUEVA LÓGICA: Pagar deuda primero si hay saldo negativo
+        // Pagar deuda primero si hay saldo negativo
         if (saldo < 0)
         {
             decimal deuda = Math.Abs(saldo);
@@ -40,7 +40,7 @@ public abstract class Tarjeta
 
             if (montoRestante >= 0)
             {
-                // ✅ Paga la deuda completa y aplica el resto al saldo
+                //Paga la deuda completa y aplica el resto al saldo
                 saldo = montoRestante;
 
                 // Verificar si el saldo restante cabe en el límite
@@ -58,7 +58,7 @@ public abstract class Tarjeta
             }
             else
             {
-                // ✅ Reduce la deuda parcialmente (no alcanza para pagarla toda)
+                //  Reduce la deuda parcialmente (no alcanza para pagarla toda)
                 saldo += monto;
                 return true;
             }
@@ -103,7 +103,7 @@ public abstract class Tarjeta
             return false; //No permite superar el límite de -$1200
 
         saldo = nuevoSaldo; // Permite saldo negativo hasta -$1200
-
+        RegistrarViaje();
         // Después de descontar, intentar acreditar saldo pendiente
         AcreditarCarga();
 
@@ -129,7 +129,7 @@ public abstract class Tarjeta
         TimeSpan tiempoDesdeUltimoViaje = DateTime.Now - ultimoViaje;
 
         // Para testing: 5 segundos en lugar de 5 minutos
-        if (tiempoDesdeUltimoViaje.TotalMinutes < 5)  // Cambiado de Minutes a Seconds
+        if (tiempoDesdeUltimoViaje.TotalSeconds < 5)  // Cambiado de Minutes a Seconds
             return false;
 
         // Verificar máximo 2 viajes por día
@@ -141,7 +141,10 @@ public abstract class Tarjeta
 
     public bool PuedeViajarGratuito()
     {
-        return CantidadViajesHoy() < 2;
+        
+        bool resultado = CantidadViajesHoy() < 2;
+        
+        return resultado;
     }
 
     public abstract decimal CalcularMontoPasaje(decimal tarifaBase);

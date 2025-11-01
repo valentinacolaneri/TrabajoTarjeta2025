@@ -66,9 +66,7 @@ public class MedioBoletoLimitesTests
         // Concepto: Los primeros 2 viajes del día son medio boleto
         // Los viajes posteriores son tarifa completa
 
-        Console.WriteLine("Comportamiento esperado:");
-        Console.WriteLine("- Viajes 1-2: 790m (medio boleto)");
-        Console.WriteLine("- Viaje 3+: 1580m (tarifa completa)");
+        
 
         // Verificamos que el método existe y funciona
         decimal monto = medioBoleto.CalcularMontoPasaje(1580m);
@@ -91,12 +89,19 @@ public class MedioBoletoLimitesTests
         Assert.AreEqual(790m, boleto1.Monto);
         Assert.AreEqual(4210m, medioBoleto.Saldo);
 
+        
+
         // Intentar segundo viaje inmediatamente - DEBE FALLAR (menos de 5 segundos)
+        
         var boleto2Inmediato = colectivo.PagarCon(medioBoleto);
+
+        
+
         Assert.IsFalse(boleto2Inmediato.EsValido, "Segundo viaje inmediato debe fallar");
         Assert.AreEqual(4210m, medioBoleto.Saldo, "Saldo no debe cambiar");
 
         // Esperar 6 SEGUNDOS (más de 5 segundos)
+        
         Thread.Sleep(6000);
 
         // Segundo viaje después de espera - DEBE SER MEDIO BOLETO
@@ -125,7 +130,7 @@ public class MedioBoletoLimitesTests
         // Verificar que puede pagar el primer viaje
         Assert.IsTrue(medioBoleto.PuedePagar(1580m));
 
-        Console.WriteLine("¡Lógica corregida! Primer viaje = medio boleto");
+        
     }
 }
 
