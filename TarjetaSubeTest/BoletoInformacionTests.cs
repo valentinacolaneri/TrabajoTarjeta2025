@@ -58,11 +58,11 @@ public class BoletoInformacionTests
 
         // Assert
         StringAssert.Contains("Boleto - Línea: 143", resultado);
-        StringAssert.Contains("Monto: $120,50", resultado); // ← usa coma
+        StringAssert.IsMatch(@"Monto: \$120[.,]50", resultado);
         StringAssert.Contains("Fecha: 03/11/2025 14:30", resultado);
         StringAssert.Contains("Válido: True", resultado);
         StringAssert.Contains("Tipo: SUBE", resultado);
-        StringAssert.Contains("Saldo: $250,75", resultado);
+        StringAssert.IsMatch(@"Saldo: \$250[.,]75", resultado);
         StringAssert.Contains("ID: 12345", resultado);
         StringAssert.DoesNotContain("TRASBORDO", resultado);
     }

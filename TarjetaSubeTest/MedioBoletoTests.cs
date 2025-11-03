@@ -24,19 +24,14 @@ namespace TarjetaSubeTest
         [Test]
         public void MedioBoleto_CalculaMitadDeTarifa_PrimerViaje()
         {
-            var tarjeta = new MedioBoletoEstudiantil();
+            DateTime now = new DateTime(2025, 1, 1, 10, 0, 0);
+            var tarjeta = new MedioBoletoEstudiantil(() => now);
 
             decimal monto = tarjeta.CalcularMontoPasaje(1580m);
 
-            if (EstaEnFranjaHorariaDeTest()) 
-            {
-                Assert.AreEqual(790m, monto);
-            }
-            else
-            {
-                Assert.AreEqual(1580m, monto);
-            }
+            Assert.AreEqual(790m, monto, "El primer viaje debe ser medio boleto dentro de franja horaria");
         }
+
 
         private bool EstaEnFranjaHorariaDeTest()
         {
