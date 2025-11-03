@@ -1,5 +1,4 @@
-[![codecov](https://codecov.io/gh/valentinacolaneri/TrabajoTarjeta2025/branch/main/graph/badge.svg)](https://codecov.io/gh/valentinacolaneri/TrabajoTarjeta2025)
-
+[![codecov](https://codecov.io/github/valentinacolaneri/TrabajoTarjeta2025/graph/badge.svg?token=OEUHSAP3W6)](https://codecov.io/github/valentinacolaneri/TrabajoTarjeta2025)
 # Trabajo Tarjeta 2025
 
 El siguiente trabajo es un enunciado iterativo. Regularmente se ampliará y/o modificará el enunciado.
