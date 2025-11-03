@@ -10,9 +10,9 @@ namespace TarjetaSube
         protected decimal saldo;
         protected decimal saldoPendienteAcreditacion;
         private const decimal LIMITE_SALDO = 56000m; // Actualizado de 40000 a 56000
-        private const decimal SALDO_NEGATIVO_MAXIMO = -1200m;
+        public const decimal SALDO_NEGATIVO_MAXIMO = -1200m;
         protected static readonly decimal[] CARGAS_ACEPTADAS =
-            { 2000m, 3000m, 4000m, 5000m, 8000m, 10000m, 15000m, 20000m, 25000m, 30000m };
+            { 2000m, 3000m, 4000m, 5000m, 8000m, 10000m, 15000m, 20000m, 25000m, 30000m, 60000m, 500m };
 
         public decimal Saldo => saldo;
         public decimal SaldoPendienteAcreditacion => saldoPendienteAcreditacion;
@@ -36,7 +36,7 @@ namespace TarjetaSube
             if (!CARGAS_ACEPTADAS.Contains(monto))
                 return false;
 
-            // Pagar deuda primero si hay saldo negativo
+            // Si hay deuda, pagarla primero
             if (saldo < 0)
             {
                 decimal deuda = Math.Abs(saldo);
@@ -44,11 +44,12 @@ namespace TarjetaSube
 
                 if (montoRestante >= 0)
                 {
-                    //Paga la deuda completa y aplica el resto al saldo
-                    saldo = montoRestante;
+                    // Paga la deuda completa y aplica el resto al saldo
+                    saldo = 0m; // Primero ponemos el saldo en 0 (deuda pagada)
 
                     // Verificar si el saldo restante cabe en el límite
                     decimal espacioDisponible = LIMITE_SALDO - saldo;
+
                     if (montoRestante <= espacioDisponible)
                     {
                         saldo += montoRestante;
@@ -62,27 +63,26 @@ namespace TarjetaSube
                 }
                 else
                 {
-                    //  Reduce la deuda parcialmente (no alcanza para pagarla toda)
+                    // Reduce la deuda parcialmente (no alcanza para pagarla toda)
                     saldo += monto;
                     return true;
                 }
             }
             else
             {
-                // Lógica original para cuando no hay deuda
+                // Lógica normal sin deuda
                 decimal espacioDisponible = LIMITE_SALDO - saldo;
 
                 if (monto <= espacioDisponible)
                 {
                     saldo += monto;
-                    return true;
                 }
                 else
                 {
                     saldo = LIMITE_SALDO;
                     saldoPendienteAcreditacion += (monto - espacioDisponible);
-                    return true;
                 }
+                return true;
             }
         }
 
@@ -100,17 +100,13 @@ namespace TarjetaSube
 
         public virtual bool Descontar(decimal monto)
         {
-            decimal nuevoSaldo = saldo - monto;
+            
+            if (saldo - monto < SALDO_NEGATIVO_MAXIMO)
+                return false;
 
-
-            if (nuevoSaldo < SALDO_NEGATIVO_MAXIMO)
-                return false; //No permite superar el límite de -$1200
-
-            saldo = nuevoSaldo; // Permite saldo negativo hasta -$1200
+            saldo -= monto;
             RegistrarViaje();
-            // Después de descontar, intentar acreditar saldo pendiente
-            AcreditarCarga();
-
+            AcreditarCarga(); // Esto puede quedarse si es necesario
             return true;
         }
 
