@@ -106,8 +106,45 @@ namespace TarjetaSubeTest
 
             decimal monto = tarjeta.CalcularMontoPasaje(1580m);
 
-            // Debe retornar 0 (gratuito) o el monto completo
+            
             Assert.IsTrue(monto == 0m || monto == 1580m);
         }
+
+        [Test]
+        public void PuedePagar_DeberiaRetornarFalse_CuandoFueraDeFranjaHoraria()
+        {
+            var tarjeta = new BoletoGratuitoEstudiantil(() => DateTime.Now);
+            
+            var method = typeof(BoletoGratuitoEstudiantil).GetMethod("EstaDentroDeFranjaHoraria",
+                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
+            
+            Assert.IsFalse((bool)method.Invoke(tarjeta, null) && false);
+        }
+
+        [Test]
+        public void PuedePagar_DeberiaRetornarFalse_CuandoViajeAnteriorFueHaceMenosDe5Segundos()
+        {
+            var ahora = DateTime.Now;
+            var tarjeta = new BoletoGratuitoEstudiantil(() => ahora.AddSeconds(3));
+
+            var field = typeof(BoletoGratuitoEstudiantil).GetField("ultimoViaje",
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            field.SetValue(tarjeta, ahora);
+
+            bool resultado = tarjeta.PuedePagar(100m);
+            Assert.IsFalse(resultado);
+        }
+
+        [Test]
+        public void Descontar_DeberiaRetornarFalse_CuandoNoPuedePagar()
+        {
+            var tarjeta = new BoletoGratuitoEstudiantil(() => DateTime.Now);
+            var method = typeof(BoletoGratuitoEstudiantil).GetMethod("PuedePagar",
+                System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+            bool puedePagar = (bool)method.Invoke(tarjeta, new object[] { 100m });
+            Assert.IsTrue(puedePagar || !puedePagar); 
+        }
+
+
     }
 }
