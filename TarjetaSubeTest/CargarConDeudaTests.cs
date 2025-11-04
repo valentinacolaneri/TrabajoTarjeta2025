@@ -156,15 +156,22 @@ namespace TarjetaSube.Tests
         [Test]
         public void PuedeViajarMedioBoleto_DosViajesHoy_RetornaFalse()
         {
-            var tarjeta = new TarjetaDummy();
-            tarjeta.LimpiarViajes();
-            tarjeta.RegistrarViajeManual(DateTime.Now.AddHours(-1));
-            tarjeta.RegistrarViajeManual(DateTime.Now.AddMinutes(-10));
+            DateTime now = new DateTime(2025, 1, 1, 10, 0, 0);
+            var tarjeta = new MedioBoletoEstudiantil(() => now);
 
-            bool resultado = tarjeta.PuedeViajarMedioBoleto();
+            tarjeta.Cargar(5000m);
+            var colectivo = new Colectivo("132");
 
-            Assert.IsFalse(resultado);
+            var boleto1 = colectivo.PagarCon(tarjeta);
+            now = now.AddSeconds(6); 
+            var boleto2 = colectivo.PagarCon(tarjeta);
+
+            now = now.AddSeconds(6);
+            var boleto3 = colectivo.PagarCon(tarjeta);
+
+            Assert.IsFalse(boleto3.EsValido, "No debe permitir más de dos viajes por día con medio boleto");
         }
+
 
         [Test]
         public void PuedeViajarGratuito_MenosDeDosViajes_RetornaTrue()
